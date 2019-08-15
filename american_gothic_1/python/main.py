@@ -53,7 +53,7 @@ class Main(object):
         if platform.system() == "Windows":
             process = subprocess.Popen('C:/Program Files/processing-3.3.5/processing-java --sketch="C:/Personal/AmericanGothic/americanGothic_1/americanGothic_1" --force --run')
         elif platform.system() == "Linux":
-            process = subprocess.Popen('/home/...finish the path .../processing-3.3.5/processing-java', ['--sketch=/home/...finish the path.../pi_pyrebase_processing_template/Processing/client', '--force', '--run'])
+            process = subprocess.Popen(['/usr/local/lib/processing-3.4/processing-java', '--sketch=/home/pi/Documents/american_gothic/american_gothic_1/a_g_1_pi', '--force', '--run'])
         else:
             print("Whatever platform you are on this prject doesn't support it :(")
         return process
