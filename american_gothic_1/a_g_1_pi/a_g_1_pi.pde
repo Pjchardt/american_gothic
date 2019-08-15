@@ -22,7 +22,9 @@ void draw() {
     println("JSONObject could not be parsed");
   } 
   else {
-    float str_2 = json.getFloat("strength_2");
+    float time = json.getFloat("time_1");
+    time = constrain(time, 0, 1);
+    video.jump(time * video.duration());
   }
   
   if (video.available()) {

@@ -13,10 +13,10 @@ class PyrebaseDatabase(object):
         self.firebase = pyrebase.initialize_app(config)
         self.db = self.firebase.database()
 
-    def start(self):
+    def start(self, node):
         self.ee = EventEmitter()
         self.new_data_listener(self.new_data_handler)
-        self.my_stream = self.db.child("pwas").stream(self.stream_handler)
+        self.my_stream = self.db.child(node).stream(self.stream_handler)
 
     def stop(self):
         print('closing stream to firebase')

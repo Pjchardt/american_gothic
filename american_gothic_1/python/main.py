@@ -15,7 +15,7 @@ class Main(object):
         self.pro = self.load_processing()
         #Connect to firebase
         self.db = DB.PyrebaseDatabase()
-        self.db.start()
+        self.db.start("american_gothic")
         self.db.new_data_listener(self.new_data)
         #Setup input events
         IC.InputCommands(self.shutdown)
