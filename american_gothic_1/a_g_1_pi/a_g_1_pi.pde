@@ -3,9 +3,6 @@ import gohai.glvideo.*;
 
 Client myClient;
 GLMovie video;
-  
-//import processing.video.*;
-//Movie myMovie;
 
 void setup() {
   noCursor();
