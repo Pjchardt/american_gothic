@@ -34,3 +34,6 @@ class PyrebaseDatabase(object):
 
     def new_data_listener(self, func):
         self.ee.on("new_data_event", func)
+        
+    def send_data(self, data):
+        self.db.child("american_gothic").update({"buffer_1":data});

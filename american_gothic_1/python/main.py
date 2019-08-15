@@ -9,13 +9,13 @@ import input_commands as IC
 class Main(object):
     def __init__(self):
         #Setup server to communicate with Processing
-        self.server_thread = SRV.ServerThread()
+        self.server_thread = SRV.ServerThread(self)
         self.server_thread.start()
         #Launch processing
-        self.pro = self.load_processing()
+        #self.pro = self.load_processing()
         #Connect to firebase
         self.db = DB.PyrebaseDatabase()
-        self.db.start("american_gothic")
+        self.db.start("ears")
         self.db.new_data_listener(self.new_data)
         #Setup input events
         IC.InputCommands(self.shutdown)
@@ -32,6 +32,9 @@ class Main(object):
     def new_data(self, args):
         print('send data to server: ', args)
         self.server_thread.send_data(args)
+        
+    def update_database(self, data):
+        self.db.send_data(data)
 
     def shutdown(self):
         print('stopping application')
