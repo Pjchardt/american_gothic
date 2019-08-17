@@ -5,7 +5,7 @@ Client myClient;
 GLMovie video;
 
 PFont font;
-WordVis word_vis;
+WordVis word_vis = new WordVis();
 
 void setup() {
   noCursor();
@@ -16,6 +16,7 @@ void setup() {
   
   font = loadFont("Broadway-256.vlw");
   word_vis = new WordVis();
+  word_vis.setup("hello world");
   
   video = new GLMovie(this, "test1.mp4");
   video.loop();
@@ -28,6 +29,7 @@ void draw() {
   }
  
   image(video, 0, 0, width, height);
+  word_vis.update();
   
   PollServer();
 }
@@ -68,9 +70,10 @@ class WordVis {
    }
    
    textFont(font, 32);
-   textSize(300);
+   textAlign(CENTER,CENTER);
+   textSize(200);
    fill(250,50,50);
-   text(words.get(0), -25, -25, width+50, height+50);
+   text(words.get(0), -10, -10, width+20, height+20);
    time_elapsed += (millis() - last_millis) / 1000.0;
    last_millis = millis();
    if (time_elapsed > 3) {

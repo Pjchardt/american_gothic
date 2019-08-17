@@ -6,7 +6,7 @@ from pymitter import EventEmitter
 
 class PyrebaseDatabase(object):
     def __init__(self):
-        with open('pyrebase_config.json') as f:
+        with open('/home/pi/Documents/american_gothic/american_gothic_1/python/pyrebase_config.json') as f:
             config = json.load(f)
             #print()
 

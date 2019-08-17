@@ -12,7 +12,7 @@ class Main(object):
         self.server_thread = SRV.ServerThread(self)
         self.server_thread.start()
         #Launch processing
-        #self.pro = self.load_processing()
+        self.pro = self.load_processing()
         #Connect to firebase
         self.db = DB.PyrebaseDatabase()
         self.db.start("ears")
@@ -56,10 +56,12 @@ class Main(object):
         if platform.system() == "Windows":
             process = subprocess.Popen('C:/Program Files/processing-3.3.5/processing-java --sketch="C:/Personal/AmericanGothic/americanGothic_1/americanGothic_1" --force --run')
         elif platform.system() == "Linux":
-            process = subprocess.Popen(['/usr/local/lib/processing-3.4/processing-java', '--sketch=/home/pi/Documents/american_gothic/american_gothic_1/a_g_1_pi', '--force', '--run'])
+            process = subprocess.Popen(['/usr/local/lib/processing/processing-java', '--sketch=/home/pi/Documents/american_gothic/american_gothic_1/a_g_1_pi', '--force', '--run'])
         else:
             print("Whatever platform you are on this prject doesn't support it :(")
         return process
 
+time.sleep(120)
+print ("starting american gothic 1")
 m = Main()
 m.start()
